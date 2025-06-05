@@ -17,13 +17,15 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   isVerified = true,
 }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm mx-auto">
+    <div className="bg-white p-4 rounded-lg shadow-x-sm mx-auto">
       <div className="flex items-center gap-2">
         <div className="relative">
           <div className="w-14 h-14 p-1 ">
             <Image
               src={profileImage}
               alt={`${name}' profile`}
+              width={40}
+              height={40}
               className="w-full h-full rounded-full object-cover bg-white"
             />
           </div>
