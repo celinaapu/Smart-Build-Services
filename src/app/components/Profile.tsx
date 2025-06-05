@@ -8,6 +8,7 @@ import HelpIcon from "../assets/Icons/HelpIcon";
 import ProfileIcon from "../assets/Icons/UserIcon";
 import ProfileVeriIcon from "../assets/Icons/ProfileVeriIcon";
 import CrossIcon from "../assets/Icons/SidebarIcons";
+import ProfileHeader from "./ProfileHeader";
 
 const settingsItems = [
   {
@@ -61,6 +62,9 @@ const ProfileSettings = ({ onClose }: { onClose: () => void }) => {
         <button onClick={onClose} aria-label="Close chat sidebar">
           <CrossIcon />
         </button>
+      </div>
+      <div>
+        <ProfileHeader />
       </div>
 
       <div className="">
