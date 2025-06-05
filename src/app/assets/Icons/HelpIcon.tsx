@@ -2,9 +2,7 @@
 
 import React from "react";
 
-interface HelpIconProps extends React.SVGProps<SVGSVGElement> {}
-
-const HelpIcon: React.FC<HelpIconProps> = (props) => (
+const HelpIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="20"
     height="21"

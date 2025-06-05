@@ -1,7 +1,6 @@
 "use client";
 
 import VerifiedBadgeIcon from "../assets/Icons/Bookmark";
-import Bookmark from "../assets/Icons/Bookmark";
 import MapPin from "../assets/Icons/MapPin";
 import Image from "next/image";
 import SmileyIcon from "../assets/Icons/SmileyIcon";

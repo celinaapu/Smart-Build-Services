@@ -1,13 +1,20 @@
-// components/icons/ProfileArrow.tsx
-
 import React from "react";
 
-interface ProfileArrowProps extends React.SVGProps<SVGSVGElement> {}
+interface ProfileArrowProps extends React.SVGProps<SVGSVGElement> {
+  width?: number;
+  height?: number;
+  stroke?: string;
+}
 
-const ProfileArrow: React.FC<ProfileArrowProps> = (props) => (
+const ProfileArrow: React.FC<ProfileArrowProps> = ({
+  width = 30,
+  height = 30,
+  stroke = "#9E9E9E",
+  ...props
+}) => (
   <svg
-    width="30"
-    height="30"
+    width={width}
+    height={height}
     viewBox="0 0 30 30"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +22,7 @@ const ProfileArrow: React.FC<ProfileArrowProps> = (props) => (
   >
     <path
       d="M12.5 22L18.75 15.75L12.5 9.5"
-      stroke="#9E9E9E"
+      stroke={stroke}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

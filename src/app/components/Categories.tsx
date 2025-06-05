@@ -73,7 +73,6 @@ export default function CategorySelector({ onClose }: CloseCategorySelector) {
     "Barber",
   ]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [showCategoryPanel, setShowCategoryPanel] = useState(true);
 
   const toggleCategory = (category: string, index: number) => {
     const categoryKey = `${category}-${index}`;

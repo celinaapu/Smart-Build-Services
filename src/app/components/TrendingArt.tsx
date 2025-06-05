@@ -46,16 +46,6 @@ const mockArtisans: Artisan[] = [
     rating: 4.9,
     verified: true,
   },
-  // {
-  //   id: 4,
-  //   name: "Chomzy nails",
-  //   category: "Nail Technician",
-  //   location: "Surulere, Lagos",
-  //   image:
-  //     "https://res.cloudinary.com/dhliy2g1g/image/upload/v1748781035/Rectangle_231_kq5u1d.jpg",
-  //   rating: 4.8,
-  //   verified: true,
-  // },
 ];
 
 export default function TrendingArtisans() {
@@ -88,7 +78,6 @@ export default function TrendingArtisans() {
                   {artisan.name}
                   {artisan.verified && (
                     <div>
-                      {/* <span className="text-white text-xs">✓</span> */}
                       <VerifiedBadgeIcon />
                     </div>
                   )}

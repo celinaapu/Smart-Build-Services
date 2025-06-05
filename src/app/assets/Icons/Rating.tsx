@@ -1,8 +1,6 @@
-import React from 'react';
+import React from "react";
 
-interface IconProps extends React.SVGProps<SVGSVGElement> {}
-
-export function RatingIcon(props: IconProps) {
+export function RatingIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="24"
@@ -12,8 +10,8 @@ export function RatingIcon(props: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path 
-        d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" 
+      <path
+        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
         fill="white"
       />
     </svg>

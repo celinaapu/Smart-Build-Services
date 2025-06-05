@@ -1,9 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Search from "../../assets/Icons/Search";
-import Menu from "../../assets/Icons/Menu";
-import Share from "../../assets/Icons/Share";
 import TrendingArtisans from "../../components/TrendingArt";
 import ArtisansForYou from "../../components/ArtisansForYou";
 import CategoryIcon from "@/app/assets/Icons/category";
@@ -40,9 +37,7 @@ const categories = [
 
 export default function KraftaaMain() {
   const { toggleSidebar } = useSidebar();
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([
-    "Barber",
-  ]);
+  const [selectedCategories] = useState<string[]>(["Barber"]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -54,7 +49,7 @@ export default function KraftaaMain() {
             <span className="text-[13px]">Category</span>
           </div>
           <div className="flex w-[219px] gap-6 items-center">
-            <MapPin width="16" height="16" />
+            <MapPin />
             <span className="text-[13px]">Current location</span>
             <DropdownIcon width="20" height="20" />
           </div>

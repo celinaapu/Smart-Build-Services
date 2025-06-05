@@ -1,8 +1,6 @@
 import React from "react";
 
-interface IconProps extends React.SVGProps<SVGSVGElement> {}
-
-export default function Search(props: IconProps) {
+export default function Search(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="24"
@@ -13,7 +11,7 @@ export default function Search(props: IconProps) {
       {...props}
     >
       <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2" />
-      <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2" />
+      <path d="M21 21L16.65 16.65" stroke="currentColor" strokeWidth="2" />
     </svg>
   );
 }

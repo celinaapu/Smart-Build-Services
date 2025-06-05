@@ -1,8 +1,6 @@
-import React from 'react';
+import React from "react";
 
-interface IconProps extends React.SVGProps<SVGSVGElement> {}
-
-export function DropdownIcon(props: IconProps) {
+export function DropdownIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="24"
@@ -12,11 +10,11 @@ export function DropdownIcon(props: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path 
-        d="m6 9 6 6 6-6" 
-        stroke="white" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
+      <path
+        d="m6 9 6 6 6-6"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
     </svg>

@@ -2,9 +2,7 @@
 
 import React from "react";
 
-interface ProfileVeriIconProps extends React.SVGProps<SVGSVGElement> {}
-
-const ProfileVeriIcon: React.FC<ProfileVeriIconProps> = (props) => (
+const ProfileVeriIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="20"
     height="21"

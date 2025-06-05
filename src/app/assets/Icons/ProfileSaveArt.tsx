@@ -1,10 +1,6 @@
-// components/icons/ProfileSaveArt.tsx
-
 import React from "react";
 
-interface ProfileSaveArtProps extends React.SVGProps<SVGSVGElement> {}
-
-const ProfileSaveArt: React.FC<ProfileSaveArtProps> = (props) => (
+const ProfileSaveArt: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="20"
     height="21"

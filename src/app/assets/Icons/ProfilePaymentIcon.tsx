@@ -1,10 +1,6 @@
-// components/icons/ProfilePayHistIcon.tsx
-
 import React from "react";
 
-interface ProfilePayHistIconProps extends React.SVGProps<SVGSVGElement> {}
-
-const ProfilePayHistIcon: React.FC<ProfilePayHistIconProps> = (props) => (
+const ProfilePayHistIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="20"
     height="21"

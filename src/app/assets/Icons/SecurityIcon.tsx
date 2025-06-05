@@ -1,10 +1,6 @@
-// components/icons/SecurityIcon.tsx
-
 import React from "react";
 
-interface SecurityIconProps extends React.SVGProps<SVGSVGElement> {}
-
-const SecurityIcon: React.FC<SecurityIconProps> = (props) => (
+const SecurityIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="20"
     height="21"
