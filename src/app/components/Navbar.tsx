@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -16,13 +17,27 @@ import logo from "@/app/assets/images/Navkraftaa.png";
 import user from "@/app/assets/images/profilehead.png";
 import { Input } from "./inputs/Input";
 import { useSidebar } from "./ContextProvider";
+import BookIcon from "../assets/Icons/BookIcon";
+import { useUIContext } from "./UiContext";
 
 export default function Navbar() {
   const pathname = usePathname();
   const { toggleSidebar } = useSidebar();
+  const componentRef = useRef<HTMLElement>(null);
+  const { setHeight } = useUIContext();
+
+  useEffect(() => {
+    if (componentRef.current) {
+      const measuredHeight = componentRef.current.offsetHeight;
+      setHeight(measuredHeight);
+    }
+  }, [setHeight]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-eaa-purple-300 shadow-md flex items-center justify-between px-6 py-3 z-50">
+    <nav
+      ref={componentRef}
+      className="fixed top-0 left-0 w-full bg-eaa-purple-300 shadow-md flex items-center justify-between px-6 py-3 z-50"
+    >
       <div className="w-[81.6rem] mx-auto">
         <div className="flex items-center w-full flex-grow-0 justify-between">
           <div className="text-xl font-bold">
@@ -39,7 +54,7 @@ export default function Navbar() {
               }`}
             >
               <HomeIcon
-                className={`${pathname === "/dashboard" ? "#B1FA63" : "white"}`}
+                className={pathname === "/dashboard" ? "#B1FA63" : "white"}
               />
               {pathname === "/dashboard" && (
                 <>
@@ -58,7 +73,7 @@ export default function Navbar() {
               }`}
             >
               <LocationIcon
-                className={`${pathname === "/location" ? "#B1FA63" : "white"}`}
+                className={pathname === "/location" ? "#B1FA63" : "white"}
               />
               {pathname === "/location" && (
                 <>
@@ -69,22 +84,39 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/chat"
+              href="/booking"
               className={`relative flex items-center gap-2 font-bold justify-center ${
-                pathname === "/chat" ? "text-eaa-green-300 px-8" : "text-white"
+                pathname === "/booking"
+                  ? "text-eaa-green-300 px-8"
+                  : "text-white"
               }`}
             >
-              <ChatIcon
-                className={`${pathname === "/chat" ? "#B1FA63" : "white"}`}
+              <BookIcon
+                className={pathname === "/booking" ? "#B1FA63" : "white"}
               />
-              {pathname === "/chat" && (
+              {pathname === "/booking" && (
                 <>
-                  <span className="text-sm text-eaa-green-300">Chats</span>
+                  <span className="text-sm text-eaa-green-300">Booking</span>
                   <div className="absolute -bottom-6 w-full h-1 bg-eaa-green-300 rounded-full"></div>
                 </>
               )}
             </Link>
           </div>
+
+          <Link
+            href="/chat"
+            className={`relative flex items-center gap-2 font-bold justify-center ${
+              pathname === "/chat" ? "text-eaa-green-300 px-8" : "text-white"
+            }`}
+          >
+            <ChatIcon className={pathname === "/chat" ? "#B1FA63" : "white"} />
+            {pathname === "/chat" && (
+              <>
+                <span className="text-sm text-eaa-green-300">Chat</span>
+                <div className="absolute -bottom-6 w-full h-1 bg-eaa-green-300 rounded-full"></div>
+              </>
+            )}
+          </Link>
 
           <div className="flex items-center gap-4">
             <div className="relative mr-11">
@@ -97,7 +129,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            <button className="bg-white text-eaa-purple-300 px-4 py-2 rounded-md flex items-start gap-2">
+            <button className="bg-white text-eaa-purple-300 px-4 py-2 rounded-md flex items-center gap-2">
               <PostJobIcon />
               <h1>Post Jobs</h1>
             </button>
@@ -109,8 +141,14 @@ export default function Navbar() {
             </button>
 
             <button onClick={() => toggleSidebar("profile")}>
-              <div className="w-[2.56rem] h-[2.56rem] bg-gray-300 rounded-full">
-                <Image src={user} alt="user" width={40} height={40} />
+              <div className="w-[2.56rem] h-[2.56rem] bg-gray-300 rounded-full overflow-hidden">
+                <Image
+                  src={user}
+                  alt="user"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </button>
 

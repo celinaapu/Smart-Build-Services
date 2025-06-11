@@ -19,3 +19,10 @@
 body {
   font-family: Sora, Helvetica, sans-serif;
 }
+@layer utilities {
+  .bg-chat-wallpaper {
+    background-image: url("https://res.cloudinary.com/dhliy2g1g/image/upload/v1749296615/IMG_1477_kkpdi1.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}

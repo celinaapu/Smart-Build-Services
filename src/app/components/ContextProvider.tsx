@@ -2,7 +2,6 @@
 
 import { createContext, useContext, useState, ReactNode } from "react";
 
-// Define the sidebar component types
 export type SidebarComponent =
   | "profile"
   | "chat"
@@ -10,7 +9,7 @@ export type SidebarComponent =
   | "categories"
   | null;
 
-// Define the context type
+
 interface SidebarContextType {
   isSidebarOpen: boolean;
   activeComponent: SidebarComponent;
@@ -19,10 +18,9 @@ interface SidebarContextType {
   openSidebar: (component: SidebarComponent) => void;
 }
 
-// Create the context
+
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
-// Custom hook to use the sidebar context
 export const useSidebar = () => {
   const context = useContext(SidebarContext);
   if (context === undefined) {

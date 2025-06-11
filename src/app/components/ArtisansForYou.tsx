@@ -15,11 +15,12 @@ interface ArtisanForYou {
   jobs: number;
   reviews: number;
   rating: number;
+  description: string;
   verified: boolean;
   image: string;
 }
 
-const artisansForYou: ArtisanForYou[] = [
+export const artisansForYou: ArtisanForYou[] = [
   {
     id: 1,
     name: "Chomzy nails",
@@ -28,6 +29,8 @@ const artisansForYou: ArtisanForYou[] = [
     jobs: 500,
     reviews: 80,
     rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
     verified: true,
     image:
       "https://res.cloudinary.com/dhliy2g1g/image/upload/v1749043063/Frame36758_hkzxjq.jpg",
@@ -40,6 +43,8 @@ const artisansForYou: ArtisanForYou[] = [
     jobs: 500,
     reviews: 80,
     rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
     verified: true,
     image:
       "https://res.cloudinary.com/dhliy2g1g/image/upload/v1749043063/Frame36758_hkzxjq.jpg",
@@ -52,6 +57,8 @@ const artisansForYou: ArtisanForYou[] = [
     jobs: 500,
     reviews: 80,
     rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
     verified: true,
     image:
       "https://res.cloudinary.com/dhliy2g1g/image/upload/v1749043063/Frame36758_hkzxjq.jpg",
@@ -64,6 +71,8 @@ const artisansForYou: ArtisanForYou[] = [
     jobs: 500,
     reviews: 80,
     rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
     verified: true,
     image:
       "https://res.cloudinary.com/dhliy2g1g/image/upload/v1749043063/Frame36758_hkzxjq.jpg",
@@ -76,6 +85,8 @@ const artisansForYou: ArtisanForYou[] = [
     jobs: 500,
     reviews: 80,
     rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
     verified: true,
     image:
       "https://res.cloudinary.com/dhliy2g1g/image/upload/v1749043063/Frame36758_hkzxjq.jpg",
@@ -88,18 +99,21 @@ const artisansForYou: ArtisanForYou[] = [
     jobs: 500,
     reviews: 80,
     rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
     verified: true,
     image:
       "https://res.cloudinary.com/dhliy2g1g/image/upload/v1749043063/Frame36758_hkzxjq.jpg",
   },
 ];
 
-export default function ArtisansForYou() {
+export default function ArtisansForYou({
+  hasDescription,
+}: {
+  hasDescription?: boolean;
+}) {
   return (
-    <div className="">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">
-        Artisans for you
-      </h3>
+    <div className="px-4">
       <div className="flex flex-wrap gap-6">
         {artisansForYou.map((artisan) => (
           <div
@@ -116,7 +130,7 @@ export default function ArtisansForYou() {
                 />
               </div>
 
-              <div className="flex-1 p-4">
+              <div className=" flex-1 p-4">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-semibold text-gray-900 flex items-center">
                     {artisan.name}
@@ -145,6 +159,11 @@ export default function ArtisansForYou() {
                   <MapPin className="w-3 h-3 mr-1" />
                   {artisan.location}
                 </div>
+                {hasDescription && (
+                  <div className="text-[9px] flex w-[300px]">
+                    {artisan.description}
+                  </div>
+                )}
                 <div className="flex items-center mb-3">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <span

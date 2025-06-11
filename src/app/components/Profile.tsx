@@ -12,7 +12,7 @@ import CrossIcon from "../assets/Icons/SidebarIcons";
 import ProfileHeader from "./ProfileHeader";
 import LogoutIcon from "../assets/Icons/Logout";
 
-const settingsItems = [
+export const settingsItems = [
   {
     icon: <ProfileIcon />,
     title: "Profile",

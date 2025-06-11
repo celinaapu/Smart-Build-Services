@@ -3,13 +3,15 @@
 import { useState } from "react";
 import TrendingArtisans from "../../components/TrendingArt";
 import ArtisansForYou from "../../components/ArtisansForYou";
-import CategoryIcon from "@/app/assets/Icons/category";
-import MapPin from "@/app/assets/Icons/MapPin";
-import { DropdownIcon } from "@/app/assets/Icons/DropDown";
-import PricingIcon from "@/app/assets/Icons/Pricing";
-import GenderIcon from "@/app/assets/Icons/Gender";
-import { RatingIcon } from "@/app/assets/Icons/Rating";
+// import CategoryIcon from "@/app/assets/Icons/category";
+// import MapPin from "@/app/assets/Icons/MapPin";
+// import { DropdownIcon } from "@/app/assets/Icons/DropDown";
+// import PricingIcon from "@/app/assets/Icons/Pricing";
+// import GenderIcon from "@/app/assets/Icons/Gender";
+// import { RatingIcon } from "@/app/assets/Icons/Rating";
 import { useSidebar } from "@/app/components/ContextProvider";
+// import { useRouter } from "next/navigation";
+import SecondNavber from "@/app/components/SecondNavbar";
 
 const categories = [
   "Barber",
@@ -41,35 +43,10 @@ export default function KraftaaMain() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className=" border-b bg-eaa-purple-300 px-4 py-3">
-        <div className="flex flex-grow  w-[1145px] items-center justify-between mx-auto gap-6 bg-eaa-purple-300 px-6 py-4 text-white">
-          <span className="text-sm font-medium">Filters:</span>
-          <div className="flex w-[116px] gap-6 items-center ">
-            <CategoryIcon className="w-[20px] h-[20px]" />
-            <span className="text-[13px]">Category</span>
-          </div>
-          <div className="flex w-[219px] gap-6 items-center">
-            <MapPin />
-            <span className="text-[13px]">Current location</span>
-            <DropdownIcon width="20" height="20" />
-          </div>
-          <div className="flex w-[148px] items-center gap-6">
-            <RatingIcon width="20" height="20" />
-            <span className="text-[13px]">Rating</span>
-            <DropdownIcon width="20" height="20" />
-          </div>
-          <div className="flex w-[152px] items-center gap-6">
-            <PricingIcon className="w-[20px] h-[20px]" />
-            <span className="text-[13px]">Pricing</span>
-            <DropdownIcon width="20" height="20" />
-          </div>
-          <div className="flex w-[158px] items-center gap-6">
-            <GenderIcon className="w-[20px] h-[20px]" />
-            <span className="text-[13px]">Gender</span>
-            <DropdownIcon width="20" height="20" />
-          </div>
-        </div>
-      </header>
+      <div>
+        <SecondNavber />
+      </div>
+
       <div className="text-center font-semi-bold pt-4 ">
         <h1>Trending Artisans</h1>
       </div>
@@ -101,7 +78,12 @@ export default function KraftaaMain() {
               </button>
             </div>
           </div>
-          <ArtisansForYou />
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              Artisans for you
+            </h3>
+            <ArtisansForYou />
+          </div>
         </div>
       </div>
     </div>
