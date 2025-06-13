@@ -1,5 +1,5 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import BookIcon from "@/app/assets/Icons/BookIcon";
 import ShareIcon from "@/app/assets/Icons/ShareIcon";
@@ -8,6 +8,11 @@ import MapPin from "@/app/assets/Icons/MapPin";
 export default function ChatPage() {
   const params = useParams();
   const slug = params.slug;
+  const router = useRouter();
+
+  const handleBook = () => {
+    router.push("/booking");
+  };
 
   return (
     <div className="relative h-screen w-full bg-chat-wallpaper">
@@ -26,6 +31,7 @@ export default function ChatPage() {
           <div
             role="button"
             className="bg-purple-600 text-sm flex text-white justify-center items-center rounded-full px-4 py-2 gap-1"
+            onClick={handleBook}
           >
             <span>
               <BookIcon />
@@ -39,7 +45,7 @@ export default function ChatPage() {
         <div className="flex flex-col gap-4">
           <div className="self-start max-w-[70%]">
             <div className="bg-lime-400 text-black p-3 rounded-2xl rounded-bl-sm">
-              <p className="text-sm">
+              <p className="text-[12px]">
                 Okay sir, #3000 is fine you can proceed with
               </p>
             </div>
@@ -48,18 +54,18 @@ export default function ChatPage() {
 
           <div className="self-end max-w-[70%]">
             <div className="bg-gray-700 text-white p-3 rounded-2xl rounded-br-sm">
-              <p className="text-sm">okay, i&apos;m booking it now</p>
+              <p className="text-[12px]">okay, i&apos;m booking it now</p>
             </div>
             <p className="text-xs text-gray-500 mt-1 mr-2 text-right">4:30pm</p>
           </div>
 
           <div className="self-end max-w-[80%]">
             <div className="bg-gray-800 text-white p-4 rounded-2xl rounded-br-sm">
-              <p className="text-purple-400 font-semibold text-sm mb-1">
+              <p className="text-purple-400 font-semibold text-[12px] mb-1">
                 Acrylic Nail
               </p>
               <p className="font-semibold text-base mb-2">#15,000</p>
-              <p className="text-sm text-gray-300 leading-relaxed">
+              <p className="text-[12px] text-gray-300 leading-relaxed">
                 Starton offers various kind of nail tech services djheekeje
                 euehe
               </p>

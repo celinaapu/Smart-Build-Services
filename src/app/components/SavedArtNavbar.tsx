@@ -14,21 +14,21 @@ import LogoutIcon from "../assets/Icons/Logout";
 
 export const navigationItems = [
   { icon: <ProfileIcon />, title: "Profile", href: "/profile" },
-  { icon: <ProfileVeriIcon />, title: "Verification", href: "/verification" },
+  { icon: <ProfileVeriIcon />, title: "Verification", href: "" },
   {
     icon: <ProfileSaveArt />,
     title: "Saved Artisans",
-    href: "/saved-artisans",
+    href: "/ashboard/saved-artisans",
   },
   {
     icon: <ProfilePayHistIcon />,
     title: "Payment History",
-    href: "/payment-history",
+    href: "",
   },
   {
     icon: <PaymentMethodIcon />,
     title: "Payment Methods",
-    href: "/payment-methods",
+    href: "",
   },
   { icon: <SecurityIcon />, title: "Security", href: "/security" },
   { icon: <HelpIcon />, title: "Help & Support", href: "/help-support" },

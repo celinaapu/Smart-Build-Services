@@ -67,7 +67,7 @@ export default function BookingHistory() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <div className="max-w-md mx-auto py-4 text-center">
         <h1 className="text-[16px] font-semibold">Booking History</h1>
       </div>

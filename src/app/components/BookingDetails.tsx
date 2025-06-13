@@ -5,7 +5,21 @@ import Image from "next/image";
 import ChevronLeftIcon from "../assets/Icons/ChevronLeftIcon";
 import VerifiedBadgeIcon from "../assets/Icons/Bookmark";
 
-export default function BookingDetails() {
+interface BookingDetailsProps {
+  onBack: () => void;
+  bookingData: {
+    service: string;
+    amount: number | string;
+    location: string;
+    date: string;
+    time: string;
+  };
+}
+
+export default function BookingDetails({
+  onBack,
+  bookingData,
+}: BookingDetailsProps) {
   const [currentStep, setCurrentStep] = useState(1);
 
   const steps = [
@@ -18,9 +32,13 @@ export default function BookingDetails() {
   const handleStepClick = (stepId: React.SetStateAction<number>) => {
     setCurrentStep(stepId);
   };
+
   return (
     <div className="max-w-md mx-auto bg-white min-h-screen">
-      <div className="flex items-center justify-between p-4 border-b">
+      <div
+        className="flex items-center justify-between p-4 border-b"
+        onClick={onBack}
+      >
         <ChevronLeftIcon className="w-6 h-6 text-gray-600" />
         <h1 className="text-base font-medium text-gray-900">Booking details</h1>
         <div className="w-6"></div>
@@ -49,22 +67,26 @@ export default function BookingDetails() {
         <div className="space-y-2 w-[70%] mb-5">
           <div className="flex justify-start gap-14">
             <span className="text-[12px] text-gray-600">Service</span>
-            <span className="text-[12px] text-gray-400">Acrylic nails</span>
+            <span className="text-[12px] text-gray-400">
+              {bookingData.service}
+            </span>
           </div>
           <div className="flex justify-start gap-12 ">
             <span className="text-[12px] text-gray-600">Amount</span>
-            <span className="text-[12px] text-gray-400">#30,000</span>
+            <span className="text-[12px] text-gray-400">
+              ₦{bookingData.amount}
+            </span>
           </div>
           <div className="flex justify-start gap-12">
             <span className="text-[12px] text-gray-600">Location</span>
             <span className="text-[12px] text-gray-400">
-              Kilo, Surulere Lagos
+              {bookingData.location}
             </span>
           </div>
           <div className="flex justify-start gap-6">
             <span className="text-[12px] text-gray-600">Booking time</span>
             <span className="text-[12px] text-gray-400">
-              12th Jul 2024 12:15 pm
+              {bookingData.date} at {bookingData.time}
             </span>
           </div>
         </div>
@@ -80,6 +102,28 @@ export default function BookingDetails() {
             and o as It is in the document and is not responsible for sa...
           </p>
         </div>
+
+        {/* ✅ Payment Details section added here
+        <div className="mb-8">
+          <h3 className="text-[14px] font-medium text-gray-900 mb-3">
+            Payment Details
+          </h3>
+          <div className="space-y-2">
+            <div className="flex justify-between text-[12px] text-gray-600">
+              <span>Service fee</span>
+              <span>#30,000</span>
+            </div>
+            <div className="flex justify-between text-[12px] text-gray-600">
+              <span>Kraftaa fee</span>
+              <span>#1,500</span>
+            </div>
+            <div className="border-t border-gray-300 my-2"></div>
+            <div className="flex justify-between text-[12px] font-medium text-gray-900">
+              <span>Total</span>
+              <span>#31,500</span>
+            </div>
+          </div>
+        </div> */}
 
         <div className="mb-8">
           <h3 className="text-[14px] font-medium text-gray-900 mb-6 text-center">

@@ -4,6 +4,7 @@ import Image from "next/image";
 import VerifiedBadgeIcon from "../assets/Icons/Bookmark";
 import MapPin from "../assets/Icons/MapPin";
 import SaveIcon from "../assets/Icons/saveIcon";
+import { useRouter } from "next/navigation";
 
 interface Artisan {
   id: number;
@@ -49,6 +50,15 @@ const mockArtisans: Artisan[] = [
 ];
 
 export default function TrendingArtisans() {
+  const router = useRouter();
+  const handleBookNow = () => {
+    router.push("/artisans");
+  };
+
+  const handleSave = () => {
+    router.push("/dashboard/saved-artisans");
+  };
+
   return (
     <div className="mb-8">
       <div className="flex flex-wrap overflow-x-auto gap-6 pb-4">
@@ -90,10 +100,16 @@ export default function TrendingArtisans() {
               </div>
 
               <div className="w-[318px] h-[] flex items-center justify-between">
-                <button className="w-[150] h-[40px] shadow-2xl bg-eaa-purple-300 shadow-10 text-white px-6 py-2 rounded-full text-[10px] font-sm">
+                <button
+                  className="w-[150] h-[40px] shadow-2xl bg-eaa-purple-300 shadow-10 text-white px-6 py-2 rounded-full text-[10px] font-sm"
+                  onClick={handleBookNow}
+                >
                   Book now
                 </button>
-                <button className="w-[150] h-[40px] flex shadow-2xl items-center justify-center text-eaa-purple-300 px-6 py-2 border-2 rounded-full text-sm font-sm">
+                <button
+                  className="w-[150] h-[40px] flex shadow-2xl items-center justify-center text-eaa-purple-300 px-6 py-2 border-2 rounded-full text-sm font-sm"
+                  onClick={handleSave}
+                >
                   <SaveIcon className="w-4 te h-4 mr-1 text-[16px]" />
                   <p className="text-[11px]"> Save</p>
                 </button>
