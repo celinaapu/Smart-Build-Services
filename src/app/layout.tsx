@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { UIProvider } from "./components/UiContext";
+import { UIProvider } from "../components/UiContext";
+import { SidebarProvider } from "../components/ContextProvider"; // 👈 import SidebarProvider
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,8 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
-        <UIProvider>{children}</UIProvider>
+      <body className="antialiased">
+        <UIProvider>
+          <SidebarProvider>{children}</SidebarProvider>
+        </UIProvider>
       </body>
     </html>
   );

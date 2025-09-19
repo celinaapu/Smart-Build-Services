@@ -1,0 +1,198 @@
+"use client";
+
+import VerifiedBadgeIcon from "../app/assets/Icons/Bookmark";
+import MapPin from "../app/assets/Icons/MapPin";
+import Image from "next/image";
+import SmileyIcon from "../app/assets/Icons/SmileyIcon";
+import JobIcon from "../app/assets/Icons/JobIcon";
+import SaveIcon from "../app/assets/Icons/saveIcon";
+
+interface ArtisanForYou {
+  id: number;
+  name: string;
+  category: string;
+  location: string;
+  jobs: number;
+  reviews: number;
+  rating: number;
+  description: string;
+  verified: boolean;
+  image: string;
+}
+
+export const artisansForYou: ArtisanForYou[] = [
+  {
+    id: 1,
+    name: "Chomzy nails",
+    category: "Nail Technician",
+    location: "Surulere, Lagos",
+    jobs: 500,
+    reviews: 80,
+    rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
+    verified: true,
+    image:
+      "https://res.cloudinary.com/celina/image/upload/v1757772515/carpenter-cutting-mdf-board-inside-workshop_23-2149451066_zuiiq0.avif",
+  },
+  {
+    id: 2,
+    name: "Chomzy nails",
+    category: "Nail Technician",
+    location: "Surulere, Lagos",
+    jobs: 500,
+    reviews: 80,
+    rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
+    verified: true,
+    image:
+      "https://res.cloudinary.com/celina/image/upload/v1757772515/images_yyoygl.jpg",
+  },
+  {
+    id: 3,
+    name: "Chomzy nails",
+    category: "Nail Technician",
+    location: "Surulere, Lagos",
+    jobs: 500,
+    reviews: 80,
+    rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
+    verified: true,
+    image:
+      "https://res.cloudinary.com/celina/image/upload/v1757772515/chefs_angihb.jpg",
+  },
+  {
+    id: 4,
+    name: "Chomzy nails",
+    category: "Nail Technician",
+    location: "Surulere, Lagos",
+    jobs: 500,
+    reviews: 80,
+    rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
+    verified: true,
+    image:
+      "https://res.cloudinary.com/celina/image/upload/v1757772515/programming-background-with-person-working-with-codes-computer_23-2150010125_gt4g5z.avif",
+  },
+  {
+    id: 5,
+    name: "Chomzy nails",
+    category: "Nail Technician",
+    location: "Surulere, Lagos",
+    jobs: 500,
+    reviews: 80,
+    rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
+    verified: true,
+    image:
+      "https://res.cloudinary.com/celina/image/upload/v1755615295/student-desk-talking-with-school-colleague-phone-call_wdj9d2.jpg",
+  },
+  {
+    id: 6,
+    name: "Chomzy nails",
+    category: "Nail Technician",
+    location: "Surulere, Lagos",
+    jobs: 500,
+    reviews: 80,
+    rating: 4.5,
+    description:
+      "Starton offers varios kind of nail tech services ajheekee euehe and assume my neme my name go loud for the purpose of this project is",
+    verified: true,
+    image:
+      "https://res.cloudinary.com/celina/image/upload/v1750316917/Nailcare_g7fxn0.jpg",
+  },
+];
+
+export default function ArtisansForYou({
+  hasDescription,
+}: {
+  hasDescription?: boolean;
+}) {
+  return (
+    <div className="px-4">
+      <div className="flex flex-wrap gap-6">
+        {artisansForYou.map((artisan) => (
+          <div
+            key={artisan.id}
+            className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+          >
+            <div className="flex">
+              <div className="w-32 flex items-center justify-center relative overflow-hidden flex-shrink-0">
+                <Image
+                  src={artisan.image}
+                  alt={`${artisan.name} - ${artisan.category}`}
+                  fill
+                  className="object-cover w-[164px] h-[191px]"
+                />
+              </div>
+
+              <div className=" flex-1 p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-semibold text-gray-900 flex items-center">
+                    {artisan.name}
+                    {artisan.verified && (
+                      <div>
+                        <VerifiedBadgeIcon />
+                      </div>
+                    )}
+                  </h4>
+                </div>
+
+                <div className="flex items-center text-xs text-gray-600 mb-3">
+                  <span className="flex items-center mr-3">
+                    <span className="mr-1">
+                      <JobIcon />
+                    </span>
+                    {artisan.jobs} Jobs
+                  </span>
+                  <span className="flex items-center">
+                    <SmileyIcon className="mr-1" />
+                    {artisan.reviews} reviews
+                  </span>
+                </div>
+
+                <div className="flex items-center text-sm text-gray-600 mb-3">
+                  <MapPin className="w-3 h-3 mr-1" />
+                  {artisan.location}
+                </div>
+                {hasDescription && (
+                  <div className="text-[9px] flex w-[300px]">
+                    {artisan.description}
+                  </div>
+                )}
+                <div className="flex items-center mb-3">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span
+                      key={star}
+                      className={`text-sm ${
+                        star <= Math.floor(artisan.rating)
+                          ? "text-eaa-purple-300 "
+                          : star <= artisan.rating
+                          ? "text-eaa-purple-300 "
+                          : "text-gray-300"
+                      }`}
+                    >
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between">
+                  <button className="bg-eaa-purple-300 w-[130px] text-white px-4 py-2 rounded-full text-[11px] transition-colors">
+                    Book now
+                  </button>
+                  <button className="text-eaa-purple-300 ">
+                    <SaveIcon className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
