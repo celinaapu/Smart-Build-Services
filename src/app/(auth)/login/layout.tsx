@@ -6,7 +6,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SignUpSchema } from "@/components/Validation";
 import { SignUpData } from "../../../types";
 
-
 export default function LoginLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
